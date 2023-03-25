@@ -8,8 +8,8 @@ const app = new Hono();
 app.get("/", async (c) => {
   const query = c.req.query("q");
   const size = 10;
-  const page = c.req.query("page") ?? "0";
-  const from = Number(page) * size;
+  const page = c.req.query("page") ?? "1";
+  const from = (Number(page) - 1) * size;
 
   const npmSearchResponse = await fetch(
     `https://api.npms.io/v2/search?q=${query}&size=${size}&from=${from}`
