@@ -59,7 +59,6 @@ app.get("/", async (c) => {
           date: result.package.date,
           link: result.package.links.npm,
           publisher: result.package.publisher.username,
-          keywords: result.package.keywords,
           unstable: !!result.flags?.unstable,
           deprecated: !!result.flags?.deprecated,
           runtimes,

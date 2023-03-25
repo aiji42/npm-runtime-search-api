@@ -8,5 +8,6 @@ yarn run deploy
 ```
 
 ```
-https://<your-api-domain>/?q=<package name>
+https://<your-api-domain>/?q=<package name>&page=<page number (optional)>
 ```
+
