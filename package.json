@@ -9,6 +9,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20221111.1",
     "prettier": "^2.8.7",
+    "vitest": "^0.29.7",
     "wrangler": "^2.7.1"
   }
 }
