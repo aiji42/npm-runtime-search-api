@@ -1,2 +1,3 @@
 name = "npm-runtime-search-api"
 compatibility_date = "2023-03-25"
+main = "src/index.ts"
