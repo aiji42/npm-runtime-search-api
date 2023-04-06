@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler publish src/index.ts",
-    "test": "vitest --run"
+    "test": "vitest --run",
+    "test:coverage": "yarn run test --coverage"
   },
   "dependencies": {
     "hono": "^3.1.0"
