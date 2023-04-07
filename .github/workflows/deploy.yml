@@ -4,10 +4,36 @@ on:
   push:
     branches:
       - main
+  pull_request: {}
 
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
+    name: Test⚡️
+    steps:
+      - uses: styfle/cancel-workflow-action@0.11.0
+        name: Cancel previous runs
+      
+      - uses: actions/checkout@v3
+        name: Checkout repo
+
+      - uses: actions/setup-node@v3
+        name: Setup node
+        with:
+          node-version: 16
+      
+      - uses: bahmutov/npm-install@v1
+        name: Download deps
+        with:
+          useLockFile: false
+      
+      - name: Run vitest
+        run: yarn run test:coverage
+
+  deploy:
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    needs: [test]
     name: Deploy🚀
     steps:
       - uses: actions/checkout@v2
